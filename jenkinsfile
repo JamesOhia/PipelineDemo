@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'The Build Stage is executed'
+                build quietPeriod: 3, job: 'BuildJob'
+            }
+        }
+         stage('Dev') {
+            steps {
+                echo 'The Dev Stage is executed'
+                build quietPeriod: 3, job: 'DevJob'
+            }
+        }
+         stage('Test') {
+            steps {
+                echo 'The Test Stage is executed'
+                build quietPeriod: 3, job: 'TestJob'
+            }
+        }
+    }
+}
